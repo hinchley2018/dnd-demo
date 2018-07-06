@@ -22,6 +22,7 @@ class App extends Component {
 
   getList = id => this.state[this.id2List[id]];
 
+  //result is the object that moved
   onDragEnd = result => {
     const { source, destination } = result;
 
