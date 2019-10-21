@@ -6,8 +6,8 @@ import {getItems,reorder,move} from './utils'
 import DragList from './DragList';
 class App extends Component {
   state = {
-    items: getItems(10),
-    selected: getItems(5, 10)
+    droppable1: getItems(10),
+    droppable2: getItems(5, 10)
   };
 
   /**
@@ -16,8 +16,8 @@ class App extends Component {
    * source arrays stored in the state.
    */
   id2List = {
-      droppable: 'items',
-      droppable2: 'selected'
+      droppable1: 'droppable1',
+      droppable2: 'droppable2'
   };
 
   getList = id => this.state[this.id2List[id]];
@@ -41,7 +41,7 @@ class App extends Component {
       let state = { items };
 
       if (source.droppableId === 'droppable2') {
-        state = { selected: items };
+        state = { droppable2: items };
       }
 
       this.setState(state);
@@ -72,12 +72,12 @@ class App extends Component {
         <DragDropContext onDragEnd={this.onDragEnd}>
           <div style={{display:'flex', flexDirection: 'row'}}>
             <DragList
-              id='droppable'
-              items={this.state.items}
+              id='droppable1'
+              items={this.state.droppable1}
             />
             <DragList
               id='droppable2'
-              items={this.state.selected}
+              items={this.state.droppable2}
             />
           </div>
         </DragDropContext>
