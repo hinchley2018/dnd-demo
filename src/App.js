@@ -56,8 +56,8 @@ class App extends Component {
       );
       //update state with result
       this.setState({
-          items: result.droppable,
-          selected: result.droppable2
+        [source.droppableId]: result[source.droppableId],
+        [destination.droppableId]: result[destination.droppableId],
       });
     }
   };
